@@ -65,6 +65,8 @@ docker logs SQLSERV
 
 # 2. Connect from VS Code
 
+Download: SQL Server (mssql) extension 
+
 Press Cmd + Shift + P
 
 Choose: > MS SQL: New Connection
