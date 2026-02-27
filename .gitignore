@@ -27,5 +27,27 @@ obj/
 
 # Backup files
 *.bak
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Logs
 *.log
 
+# Env / secrets
+.env
+.env.*
+secrets.*
+*.pem
+*.key
+
+# OS / temp
+*.tmp
+*.swp
+*~
