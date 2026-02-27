@@ -63,7 +63,7 @@ docker restart SQLSERV
 docker logs SQLSERV
 ```
 
-2. Connect from VS Code
+# 2. Connect from VS Code
 
 Press Cmd + Shift + P
 
