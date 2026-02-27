@@ -8,9 +8,9 @@ Running a SQL database in a Docker container provides isolated, disposable insta
 Below is an example with Microsoft SQL Server.
 
 ```bash
-docker run -d --name PushokSQL \
+docker run -d --name SQLSERV \
   -e ACCEPT_EULA=Y \
-  -e SA_PASSWORD="Pushok11." \
+  -e SA_PASSWORD="Password!1" \
   -p 1433:1433 \
   mcr.microsoft.com/mssql/server:2019-latest
 ```
@@ -25,15 +25,15 @@ docker run -d --name PushokSQL \
     
     “Detached” mode → runs in the background (you still can use the terminal).
     
-- **`-name PushokSQL`**
+- **`-name SQLSERV`**
     
-    Gives the container a name so you can later do `docker start/stop/logs PushokSQL`.
+    Gives the container a name so you can later do `docker start/stop/logs SQLSERV`.
     
 - **`e ACCEPT_EULA=Y`**
     
     Sets an environment variable inside the container: you accept Microsoft’s license.
     
-- **`e SA_PASSWORD=Pushok11.`**
+- **`e SA_PASSWORD=Password!1`**
     
     Sets the SQL Server **admin password** for user **`sa`**.
     
@@ -57,24 +57,26 @@ docker run -d --name PushokSQL \
 
 ```bash
 docker ps
-docker start PushokSQL
-docker stop PushokSQL
-docker restart PushokSQL
-docker logs PushokSQL
+docker start SQLSERV
+docker stop SQLSERV
+docker restart SQLSERV
+docker logs SQLSERV
 ```
 
 2. Connect from VS Code
 
 Press Cmd + Shift + P
+
 Choose: > MS SQL: New Connection
 
 Enter:
-> Server name - 127.0.0.1,1433
+``` 
+Server name - 127.0.0.1,1433
 Trust server certificate - ON
 User name - sa ( → admin permissions)
 Password - **YourPassword**
 Save Password - ON
 Database name - master
 Encrypt - Mandatory
->
+```
 
