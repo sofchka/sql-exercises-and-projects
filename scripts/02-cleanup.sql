@@ -1,0 +1,61 @@
+-- 4) Cleaning: remove Philipe everywhere + drop databases
+
+-- Remove Philipe from DB roles (DB1..DB4)
+USE DB1;
+GO
+ALTER ROLE db_datareader DROP MEMBER Philipe;
+ALTER ROLE db_datawriter DROP MEMBER Philipe;
+GO
+DROP USER IF EXISTS Philipe;
+GO
+
+USE DB2;
+GO
+ALTER ROLE db_datareader DROP MEMBER Philipe;
+ALTER ROLE db_datawriter DROP MEMBER Philipe;
+GO
+DROP USER IF EXISTS Philipe;
+GO
+
+USE DB3;
+GO
+ALTER ROLE db_datareader DROP MEMBER Philipe;
+ALTER ROLE db_datawriter DROP MEMBER Philipe;
+GO
+DROP USER IF EXISTS Philipe;
+GO
+
+USE DB4;
+GO
+ALTER ROLE db_datareader DROP MEMBER Philipe;
+ALTER ROLE db_datawriter DROP MEMBER Philipe;
+GO
+DROP USER IF EXISTS Philipe;
+GO
+
+-- Remove Philipe from DB5 (where CONNECT was denied)
+USE DB5;
+GO
+DROP USER IF EXISTS Philipe;
+GO
+
+-- Drop the login (server-level)
+USE master;
+GO
+DROP LOGIN Philipe;
+GO
+
+-- Drop all databases (forces disconnects if they are in use)
+ALTER DATABASE DB1 SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+ALTER DATABASE DB2 SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+ALTER DATABASE DB3 SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+ALTER DATABASE DB4 SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+ALTER DATABASE DB5 SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+GO
+
+DROP DATABASE DB1;
+DROP DATABASE DB2;
+DROP DATABASE DB3;
+DROP DATABASE DB4;
+DROP DATABASE DB5;
+GO
